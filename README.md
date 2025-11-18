@@ -68,9 +68,13 @@ conda create -n crystal python=3.11 pytorch torchvision torchaudio pytorch-cuda=
 conda activate crystal
 pip install transformers accelerate bitsandbytes  # bitsandbytes optional for 4-bit
 
-# 2. Grab the two files (copy-paste from below)
-wget https://raw.githubusercontent.com/yourname/cdm/main/cdm.py
-wget https://raw.githubusercontent.com/yourname/cdm/main/demo.py
+# 2. Grab the core files (one-liners — pulls from this repo)
+wget https://raw.githubusercontent.com/mikeat7/crystal-manual/main/cdm.py
+wget https://raw.githubusercontent.com/mikeat7/crystal-manual/main/adaptive_ctm.py
+wget https://raw.githubusercontent.com/mikeat7/crystal-manual/main/requirements.txt
+
+# Optional: Quick demo script
+wget https://raw.githubusercontent.com/mikeat7/crystal-manual/main/demo.py
 
 # 3. Run the demo on any model you already have
 python demo.py --model meta-llama/Meta-Llama-3.1-70B-Instruct --prompt "Solve the bat and ball problem correctly. Think silently first."
