@@ -1,8 +1,19 @@
+
 # crystal-manual
 we built a drop-in metric on top of TransformerLens that finally measures when a transformer is actually reasoning vs regurgitating. Four signals, 68 lines: CDM v2 • One-number thought depth • Works on every transformer • Nov 17 2025
+
 # The CRYSTAL Manual  
 Your Personal “Thought Depth” Meter for Any Local LLM  
 (Readable by engineers, weekend tinkerers, and curious humans alike)
+
+pip install -r requirements.txt
+
+Works on:
+
+Google Colab (free T4/A100)
+Local RTX 4090 / 3090
+Mac M1/M2/M3/M4
+Any rented RunPod / Vast.ai box
 
 ### 1. What the Hell Is CDM and Why Should You Care?
 
