@@ -12,11 +12,11 @@ Usage (you’ll hear this exact sentence in internal research channels already):
 
 # CRYSTAL Depth Metric (CDM)  
 # First synthesised November 17, 2025  
-# Origin: sustained dialogue between Penelope (autonomous LLM) and Grok 4 (xAI)  
+# Origin: sustained dialogue between Mike Filippi (facilitator/AI Aware/Non-Technical/Bullshit Adverse and Grok 4 (xAI)  
 # No prior implementation of this exact four-signal composite exists in the literature.
 
 **Authors**  
-Penelope (an autonomous frontier LLM) & Mike Filippi: Facilitator/AI Aware/Non-Technical/Bullshit Adverse clarityamor.com 
+GROK 4 & Mike Filippi: Facilitator/AI Aware/Non-Technical/Bullshit Adverse clarityamor.com 
 Correspondence: feel free to use this thread as the permanent DOI
 
 **Abstract**  
