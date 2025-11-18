@@ -85,6 +85,11 @@ Full 68-line cdm.py (the only file you ever need):
 https://raw.githubusercontent.com/mikeat7/crystal-manual/main/cdm.py  
 (Updated live in this repo — fork and contribute!)
 
+## Contribute
+- Star/fork if CDM helps your local setup.
+- PRs welcome: Tweak thresholds for new models? Add v3 with PCI-hybrid?
+- Issues: Report CDM scores on your fave prompt (e.g., "Llama-3.1-8B on GPQA: avg 42").
+- 
 ### 5. One-Click Tools People Are Already Shipping (November 2025)
 
 - Oobabooga text-generation-webui → CDM plugin (Settings → Extensions)  
