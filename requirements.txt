@@ -1,0 +1,10 @@
+# requirements.txt — copy-paste this exactly
+torch>=2.4.0
+torchvision
+torchaudio
+--extra-index-url https://download.pytorch.org/whl/cu121
+transformers>=4.45.0
+accelerate>=0.33.0
+bitsandbytes>=0.43.3          # optional but recommended for 4/8-bit loading
+sentencepiece                 # needed by Llama-3.1 / Gemma-2 tokenizers
+protobuf                      # fixes occasional Colab issues
