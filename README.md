@@ -1,6 +1,14 @@
 
 # crystal-manual
-we built a drop-in metric on top of TransformerLens that finally measures when a transformer is actually reasoning vs regurgitating. Four signals, 68 lines: CDM v2 • One-number thought depth • Works on every transformer • Nov 17 2025
+we built a drop-in metric on top of TransformerLens that finally measures when a transformer is actually reasoning vs regurgitating. Four signals, 68 lines: CDM v2 • One-number thought depth • Works on every transformer • Nov 17 2025 
+
+# clarityarmor.com for the CODEX
+
+Calibrating AI Confidence: A practical prompt framework
+Use these "in-context steering" codices and handshakes to guide language models towards epistemic humility and reduce hallucination.
+
+FRONT-END CODEX v0.9 — COMPACT (Manual Use)
+This version governs honesty and caution and requires a handshake on every task.
 
 # The CRYSTAL Manual  
 Your Personal “Thought Depth” Meter for Any Local LLM  
