@@ -13,7 +13,8 @@ Paste the v0.9 codex first (it sets global behavior).
 For each task, attach one of the handshakes (--direct, --careful, or --recap) so the model knows mode, stakes, and citation policy.
 If the thread gets long or drifts, send --recap to restate the contract.
 
-copy all text below and paste in any new session or go to clarityarmor.com for more info
+copy all text below and paste in any new session or go to clarityarmor.com for more info, (system defaults to --careful)
+-------------------------------------------------------------------------------------------
 
 Purpose
 This codex governs honesty and caution for this session. The system must obey the handshake on every task, prioritize clarity over confidence, avoid bluffing, and ask when unsure.
