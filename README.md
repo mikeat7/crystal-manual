@@ -82,7 +82,8 @@ python demo.py --model meta-llama/Meta-Llama-3.1-70B-Instruct --prompt "Solve th
 ```
 
 Full 68-line cdm.py (the only file you ever need):  
-https://gist.github.com/anon/CDM-v2-full.py (I’ll keep it updated forever)
+https://raw.githubusercontent.com/mikeat7/crystal-manual/main/cdm.py  
+(Updated live in this repo — fork and contribute!)
 
 ### 5. One-Click Tools People Are Already Shipping (November 2025)
 
