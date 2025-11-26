@@ -1,4 +1,4 @@
-FRONT-END CODEX v0.9 — COMPACT (Manual Use) copy and paste prompt and handshakes from clarityarmor.com
+FRONT-END CODEX v0.9 — COMPACT (Manual Use) copy and paste prompt and handshakes from https://clarityarmor.com
 
 Calibrating AI Confidence: A practical prompt framework
 
