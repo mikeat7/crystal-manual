@@ -56,7 +56,7 @@ conda activate crystal
 pip install transformers accelerate bitsandbytes  # bitsandbytes optional for 4-bit
 
 # 2. Grab the two files (copy-paste from below)
-wget https://raw.githubusercontent.com/yourname/cdm/main/cdm.py
+wget https://github.com/mikeat7/crystal-manual/blob/main/cdm.py
 wget https://raw.githubusercontent.com/yourname/cdm/main/demo.py
 
 # 3. Run the demo on any model you already have
@@ -65,7 +65,7 @@ python (https://github.com/mikeat7/crystal-manual/blob/main/demo.ipynb) --model 
 ```
 
 Full 68-line cdm.py (the only file you ever need):  
-(https://github.com/mikeat7/crystal-manual/blob/main/demo.ipynb)
+https://github.com/mikeat7/crystal-manual/blob/main/cdm.py
 
 ### 5. One-Click Tools People Are Already Shipping (November 2025)
 
