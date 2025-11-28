@@ -60,12 +60,12 @@ wget https://raw.githubusercontent.com/yourname/cdm/main/cdm.py
 wget https://raw.githubusercontent.com/yourname/cdm/main/demo.py
 
 # 3. Run the demo on any model you already have
-python demo.py --model meta-llama/Meta-Llama-3.1-70B-Instruct --prompt "Solve the bat and ball problem correctly. Think silently first."
+python (https://github.com/mikeat7/crystal-manual/blob/main/demo.ipynb) --model meta-llama/Meta-Llama-3.1-70B-Instruct --prompt "Solve the bat and ball problem correctly. Think silently first."
 # → CDM v2 = 94 → deep CRYSTAL
 ```
 
 Full 68-line cdm.py (the only file you ever need):  
-https://gist.github.com/anon/CDM-v2-full.py (I’ll keep it updated forever)
+(https://github.com/mikeat7/crystal-manual/blob/main/demo.ipynb)
 
 ### 5. One-Click Tools People Are Already Shipping (November 2025)
 
