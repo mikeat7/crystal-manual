@@ -56,8 +56,7 @@ conda activate crystal
 pip install transformers accelerate bitsandbytes  # bitsandbytes optional for 4-bit
 
 # 2. Grab the two files (copy-paste from below)
-wget https://github.com/mikeat7/crystal-manual/blob/main/cdm.py
-wget https://raw.githubusercontent.com/yourname/cdm/main/demo.py
+https://github.com/mikeat7/crystal-manual/blob/main/demo.ipynb
 
 # 3. Run the demo on any model you already have
 python (https://github.com/mikeat7/crystal-manual/blob/main/demo.ipynb) --model meta-llama/Meta-Llama-3.1-70B-Instruct --prompt "Solve the bat and ball problem correctly. Think silently first."
@@ -103,4 +102,4 @@ You now have a thought depth meter.
 
 Go measure your model’s mind.
 
-→ github.com/crystal-manual/CDM-v2 (star it, fork it, break it, ship it)
+→ https://github.com/mikeat7/crystal-manual/blob/main/demo.ipynb (star it, fork it, break it, ship it)
