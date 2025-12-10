@@ -3,9 +3,9 @@
 
 import torch
 import numpy as np
-import zlib  # LZ for PCI
+import zlib
 from transformers import AutoModelForCausalLM, AutoTokenizer
-
+from torch.nn.functional import cosine_similarity  # ← Add this line!
 class CDM_CTM_PCI_Engine:
     def __init__(self, model_name: str = "meta-llama/Meta-Llama-3.1-70B-Instruct",
                  target_cdm: int = 78, target_pci: float = 0.35,
