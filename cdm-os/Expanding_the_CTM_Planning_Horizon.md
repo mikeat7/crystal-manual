@@ -1,4 +1,4 @@
-EExpanding the CTM Planning Horizon
+Expanding the CTM Planning Horizon
 
 The CTM (CRYSTAL Time Metric) planning horizon refers to the temporal scope over which the system allocates autoregressive steps to achieve basin stability. In its base form, CTM measures the minimum thinking tokens needed for convergence (e.g., 4–12 for arithmetic, 120+ for insight). "Expanding" it means scaling this scope to handle multi-step, long-range planning—where the system must not only stabilize a single basin but chain multiple basins across a sequence of sub-goals.
 
