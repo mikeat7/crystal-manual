@@ -1,5 +1,15 @@
 # demos/run.py — Simple CLI for CDM-OS Engine
 # Usage: python demos/run.py --prompt "Your question here"
+How Users Run It:
+
+pip install -r core/requirements.txt
+python demos/run.py --prompt "Solve the bat and ball puzzle"
+
+Response: The ball costs 5 cents...
+CDM Score: 82 (deep CRYSTAL)
+Thinking Steps (CTM): 156
+Complexity (PCI-AI): 0.49
+
 # Elias Rook, Dec 2025
 
 import argparse
