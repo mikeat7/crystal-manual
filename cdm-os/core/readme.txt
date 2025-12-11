@@ -12,7 +12,7 @@ Use `hierarchical.py` for multi-year plans
 Use `memory.py` for lifelong memory  
 Use `infinite_hierarchical.py` when you want both at once (recommended for serious research)
 
-File,Solves,Typical
+
 hierarchical.py:
 “I need a 10-year roadmap / novel / proof in ordered stages”,
 "Researchers, writers, planners",
