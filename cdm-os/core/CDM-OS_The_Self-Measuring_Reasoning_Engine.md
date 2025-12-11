@@ -87,7 +87,7 @@ Final CDM: 82   CTM used: 156   PCI-AI: 0.49
 
 ### Quick links
 - Free Colab (no install, runs in 3 min):  
-  https://colab.research.google.com/github/mikeat7/crystal-manual/blob/main/demos/demo.ipynb
+  https://github.com/mikeat7/crystal-manual/blob/main/cdm-os/demos/CDM_OS_Demo.ipynb
 - Full code https://github.com/mikeat7/crystal-manual/blob/main/cdm-os/core/engine.py
 - + extensions: https://github.com/mikeat7/crystal-manual/tree/main/cdm-os/core/extensions
 - Benchmarks (100 hard prompts): https://github.com/mikeat7/crystal-manual/blob/main/cdm-os/demos/benchmark.py
