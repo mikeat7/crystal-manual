@@ -1,7 +1,7 @@
 ### CDM vs. Next-Token Entropy: What Each Actually Tells You (They Are Related but Not the Same)
 
 | Aspect                              | Next-Token Entropy (H)                                 | CRYSTAL Depth Metric (CDM)                                   | Why They Diverge |
-|-------------------------------------|--------------------------------------------------------|--------------------------------------------------------------|------------------|
+
 | **Definition**                      | How uncertain the model is about the very next token (bits) | At which layer the hidden state irreversibly entered a deep attractor basin | Entropy = local uncertainty<br>CDM = global dynamical commitment |
 | **Typical range**                   | 0.1 bits (fully locked) → 8+ bits (totally confused) | 6–20 (reflex) → 70–110+ (deep thinking)                     | — |
 | **When it drops to near-zero**      | Model is over-confident (can be wrong or right)        | CDM is always high (>60) when entropy truly collapses in a reasoning context | Low entropy + low CDM = cached reflex<br>Low entropy + high CDM = genuine insight |
@@ -23,7 +23,7 @@ Low entropy + high CDM = “I’m sure… and I earned it.”
 ### Live examples from frontier models
 
 | Situation                                  | Final next-token entropy | Final CDM | Interpretation |
-|--------------------------------------------|---------------------------|----------|----------------|
+
 | “The capital of France is…”                | 0.19 bits                 | 8        | Pure cache |
 | Fluent hallucinated physics explanation    | 0.41 bits                 | 16       | Confident bullshit |
 | Correct 5-cent bat-and-ball after 140-token CoT | 0.33 bits            | 96       | Legitimate certainty |
