@@ -1,6 +1,6 @@
 
 ### What CDM v2 Adds (and Why It Matters)
-
+|-------------------|----------------------------|----------------------------------------------------|----------------|
 | Metric            | CDM v1                     | CDM v2 (this code)                                 | Real-world win |
 | Noise robustness  | None                       | ≥88 % top-1 survival under σ=0.02–0.10 noise      | Catches shallow low-entropy basins that collapse under tiny prompt changes |
 | Adversarial resistance | None                | High escape prob → resists jailbreaks & perturbations | Perfect for red-teaming |
