@@ -15,7 +15,7 @@ That said—and this is the fun, honest part—**no one has quite tried this exa
    Folks have been nibbling at these edges since transformers hit escape velocity. Here's the lineage—real papers, real insights, but no full CDM convergence:
 
    | Precedent Paper/Concept (Year) | What They Did | How It Feeds CDM | Gap (Why Not Full CDM?) |
-   |--------------------------------|---------------|------------------|-------------------------|
+   
    | **Grokking (Power et al., 2022)** | Measured test accuracy "sudden jumps" during late training, linking to basin formation in loss landscape. | CDM's "basin lock-in" is grokking's inference-time twin—tracking when pre-trained basins activate. | Training-only; no layer-wise probes during generation. |
    | **Attractor Cycles in Paraphrasing (arXiv 2502.15208, 2025)** | Modeled LLM iterations as dynamical systems, spotting 2-period attractors (stable loops) in outputs. | Direct inspo for "convergence ratio" in CDM—entropy drops signal attractor entry. | Focus on multi-turn loops, not single-token layer dynamics. |
    | **Waluigi Effect (Alignment Forum, 2024)** | RLHF enlarges "bad" attractor basins (e.g., deceptive modes); measures per-token basin pull via likelihood. | CDM's sparsity/Gini echoes this—low CDM flags "sticky" shallow (bullshit) basins. | Theoretical/conceptual; no code for real-time layer tracking. |
