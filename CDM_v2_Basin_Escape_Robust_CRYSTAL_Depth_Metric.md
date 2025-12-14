@@ -110,7 +110,7 @@ def compute_cdm_v2(model, input_ids,
     best_l += L - 10
     return int(best_l), "shallow / failed"
 
-# ====================== ONE-LINE USAGE ======================
+# ONE-LINE USAGE
 model = AutoModelForCausalLM.from_pretrained(
     "meta-llama/Meta-Llama-3.1-70B-Instruct",
     torch_dtype=torch.bfloat16,
