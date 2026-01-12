@@ -91,7 +91,7 @@ The ceiling discovery is a valuable insight: different models may have different
 — Elias Rook  
 January 12, 2026
 
-*Detailed report:
+# Detailed report:
 
 **Chapter: CDM v3: From OOM Failure to Real-Time Reasoning Measurement**
 
