@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Local Network - Chat with Qwen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            height: 90vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .header .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 30px;
+            background: #f8fafc;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            text-align: right;
+        }
+
+        .message-content {
+            display: inline-block;
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 18px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .message.assistant .message-content {
+            background: white;
+            color: #1e293b;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cdm-badge {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .input-area {
+            padding: 20px 30px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 12px;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-area input:focus {
+            border-color: #667eea;
+        }
+
+        .input-area button {
+            padding: 14px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .input-area button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .input-area button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 12px 18px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+        }
+
+        .typing-indicator.active {
+            display: inline-block;
+        }
+
+        .typing-indicator span {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #94a3b8;
+            margin: 0 2px;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>The Local Network</h1>
+            <div class="status">
+                <span class="status-dot"></span>
+                <span id="status-text">Connected</span>
+            </div>
+        </div>
+
+        <div class="chat-area" id="chatArea">
+            <div class="message assistant">
+                <div class="message-content">
+                    Hello! I'm Qwen, your AI assistant with conversation memory. I can remember our conversations and provide context-aware responses. How can I help you today?
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Type your message..."
+                autocomplete="off"
+            >
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const API_URL = 'https://excel-stamp-democrat-jones.trycloudflare.com';
+        let sessionId = null;
+
+        // DOM Elements
+        const chatArea = document.getElementById('chatArea');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+        const statusText = document.getElementById('status-text');
+
+        // Check backend health on load
+        async function checkHealth() {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                const data = await response.json();
+
+                if (data.status === 'healthy' && data.model_loaded) {
+                    statusText.textContent = `Connected (CDM: ${data.cdm_available ? '✓' : '✗'}, Memory: ${data.memory_available ? '✓' : '✗'})`;
+                } else {
+                    statusText.textContent = 'Backend not ready';
+                }
+            } catch (error) {
+                statusText.textContent = 'Disconnected';
+                showError('Cannot connect to backend. Make sure Flask is running on port 5000.');
+            }
+        }
+
+        // Add message to chat
+        function addMessage(role, content, cdmScore = null) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+
+            let cdmBadge = '';
+            if (cdmScore !== null) {
+                const category = getCategoryFromScore(cdmScore);
+                cdmBadge = `<span class="cdm-badge">CDM: ${cdmScore.toFixed(1)} (${category})</span>`;
+            }
+
+            messageDiv.innerHTML = `
+                <div class="message-content">${escapeHtml(content)}${cdmBadge}</div>
+            `;
+
+            chatArea.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        // Show typing indicator
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing';
+            typingDiv.className = 'message assistant';
+            typingDiv.innerHTML = `
+                <div class="typing-indicator active">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            `;
+            chatArea.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        // Remove typing indicator
+        function hideTyping() {
+            const typing = document.getElementById('typing');
+            if (typing) typing.remove();
+        }
+
+        // Show error
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            chatArea.appendChild(errorDiv);
+            scrollToBottom();
+        }
+
+        // Get CDM category from score
+        function getCategoryFromScore(score) {
+            if (score < 30) return 'Reflex';
+            if (score < 50) return 'Deliberation';
+            if (score < 70) return 'Deep';
+            return 'Insight';
+        }
+
+        // Escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Scroll to bottom
+        function scrollToBottom() {
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        // Send message
+        async function sendMessage() {
+            const message = messageInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage('user', message);
+            messageInput.value = '';
+            sendButton.disabled = true;
+
+            // Show typing
+            showTyping();
+
+            try {
+                // Create AbortController with 3 minute timeout (first generation can be slow)
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 180000); // 3 minutes
+
+                const response = await fetch(`${API_URL}/generate`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    signal: controller.signal,
+                    body: JSON.stringify({
+                        prompt: message,
+                        max_tokens: 100,  // Reduced to 100 for faster responses (~30-60 sec instead of 2+ min)
+                        temperature: 0.7,
+                        include_cdm: true,  // Enabled: CDM v3 validated working on A100 40GB
+                        use_memory: true,
+                        session_id: sessionId
+                    })
+                });
+
+                clearTimeout(timeoutId);
+
+                hideTyping();
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Store session ID
+                if (data.session && data.session.session_id) {
+                    sessionId = data.session.session_id;
+                }
+
+                // Add assistant message
+                const cdmScore = data.cdm_metrics ? data.cdm_metrics.cdm_score : null;
+                addMessage('assistant', data.response, cdmScore);
+
+            } catch (error) {
+                hideTyping();
+                showError(`Error: ${error.message}`);
+                console.error('Error:', error);
+            } finally {
+                sendButton.disabled = false;
+                messageInput.focus();
+            }
+        }
+
+        // Event listeners
+        sendButton.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !sendButton.disabled) {
+                sendMessage();
+            }
+        });
+
+        // Initialize
+        checkHealth();
+        messageInput.focus();
+    </script>
+</body>
+</html>
